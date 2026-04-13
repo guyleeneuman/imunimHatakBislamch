@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אימונים חשיפה תקיפה</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <img class="navbar" src="assets/logos/logos.png" alt="icon 1">
+    <img class="title" src="assets/titles/ohadOT.png" alt="icon 1">
+
+<form id="contactForm" class="pillForm">
+<input type="tel" name="phone_number" placeholder="מס' טלפון">
+  <input type="text" name="user_name" placeholder="שם מלא">
+
+
+  <input type="text" name="job" placeholder="תפקיד">
+
+  <input type="number" name="solider_number" placeholder="מס' חיילים">
+
+  <input type="text" name="place" placeholder="מיקום האימון">
+
+  <!-- כותרת -->
+<div class="dropdown">
+  <div class="dropdownSelected" id="selectedUnit">
+    בחר חטיבה
+  </div>
+
+  <div class="dropdownList" id="unitList">
+    <div class="dropdownItem" data-value="צנחנים">
+      <img src="assets/icons/צנחנים.png"> צנחנים
+    </div>
+
+    <div class="dropdownItem" data-value="כפיר">
+      <img src="assets/icons/כפיר.png"> כפיר
+    </div>
+
+    <div class="dropdownItem" data-value="גבעתי">
+      <img src="assets/icons/גבעתי.png"> גבעתי
+    </div>
+
+    <div class="dropdownItem" data-value="נחל">
+      <img src="assets/icons/נחל.png"> נחל
+    </div>
+
+    <div class="dropdownItem" data-value="מרום">
+      <img src="assets/icons/מרום.png"> מרום
+    </div>
+
+    <div class="dropdownItem" data-value="גולני">
+      <img src="assets/icons/גולני.png"> גולני
+    </div>
+
+    <div class="dropdownItem noImg" data-value="אחר">
+  אחר
+    </div>
+  </div>
+
+  <input type="hidden" name="unit" id="unitInput">
+</div>
+
+  <!-- <div class="imageAndDetails">
+
+    <div class="imageSelector">
+      <label><input type="radio" name="unit" value="צנחנים"><img src="assets/icons/צנחנים.png"></label>
+      <label><input type="radio" name="unit" value="כפיר"><img src="assets/icons/כפיר.png"></label>
+      <label><input type="radio" name="unit" value="גבעתי"><img src="assets/icons/גבעתי.png"></label>
+      <label><input type="radio" name="unit" value="נחל"><img src="assets/icons/נחל.png"></label>
+      <label><input type="radio" name="unit" value="מרום"><img src="assets/icons/מרום.png"></label>
+      <label><input type="radio" name="unit" value="גולני"><img src="assets/icons/גולני.png"></label>
+      <label><input type="radio" name="unit" value="אחר"><img src="assets/icons/אחר.png"></label>
+    </div> -->
+
+  <!-- </div> -->
+
+  <!-- הערות -->
+  <textarea name="notes" placeholder="הערות:
+ גיל/תצפית"></textarea>
+  
+<textarea class="detailsField" name="details" placeholder="פירוט:
+גדוד/סיירת/אחר"></textarea>   <!-- כפתור שליחה -->
+<input type="date" name="date" class="halfInput" required>
+<input type="time" name="time" class="halfInput" required>
+
+<button type="submit" class="submitBtn">
+  <img src="assets/butttons/submit.png" alt="הגשה">
+</button>
+
+</form>
+<div id="overlay"></div>
+
+<div id="successPopup">
+  <img src="assets/elements/popUp.png" alt="success">
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init("Ak1OHw83c5xwHhhHd");
+</script>
+<script>
+function goToMenu() {
+    window.location.href = "menu.html";
+}
+
+/* =========================
+   SUBMIT + EMAILJS + POPUP
+========================= */
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = this.user_name.value.trim();
+    const phone = this.phone_number.value.trim();
+    const job = this.job.value.trim();
+    const solider = this.solider_number.value.trim();
+    const place = this.place.value.trim();
+    const unit = document.getElementById("unitInput").value.trim();
+    const details = this.details.value.trim();
+    const notes = this.notes.value.trim();
+    const date = dateInput.value === "תאריך" ? "" : dateInput.value;
+    const time = timeInput.value === "שעה" ? "" : timeInput.value;
+    // ✅ בדיקה שכל השדות מלאים
+  if (!name || !phone || !job || !solider || !place || !unit || !details || !date || !time) {
+    alert("יש למלא את כל השדות לפני שליחה");
+    return;
+}
+
+const data = {
+    user_name: name,
+    phone_number: phone,
+    job: job,
+    solider_number: solider,
+    place: place,
+    unit: unit,
+    details: details,
+    notes: notes,
+    date: date,
+    time: time,
+    title: "אוהד אופקי"
+};
+
+    console.log("DATA:", data);
+
+Promise.all([
+    emailjs.send("service_f45cdvz", "template_6kkbuqs", data),//גיאלי
+    emailjs.send("service_44vmdgo", "template_6kkbuqs", data),//רון שוורץ
+    emailjs.send("service_tzqwram", "template_6kkbuqs", data),//כללי חתק
+    emailjs.send("service_fdgn3qm", "template_6kkbuqs", data)//נטע שצברג
+])
+.then(() => {
+    console.log("EMAIL SENT TO BOTH");
+
+    showPopup();
+
+    this.reset();
+    document.getElementById("selectedUnit").innerText = "בחר חטיבה";
+    document.getElementById("unitInput").value = "";
+})
+.catch((err) => {
+    console.log("ERROR FULL:", err);
+    alert("שגיאה בשליחה");
+});
+});
+function showPopup() {
+    const overlay = document.getElementById("overlay");
+    const popup = document.getElementById("successPopup");
+
+    overlay.style.display = "block";
+    popup.style.display = "block";
+
+    setTimeout(() => {
+        overlay.style.display = "none";
+        popup.style.display = "none";
+    }, 3000);
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+const selected = document.getElementById("selectedUnit");
+const list = document.getElementById("unitList");
+const hiddenInput = document.getElementById("unitInput");
+const dropdown = document.querySelector(".dropdown");
+
+// פתיחה / סגירה
+selected.addEventListener("click", (e) => {
+    e.stopPropagation();
+    list.style.display = list.style.display === "block" ? "none" : "block";
+});
+
+// בחירה
+document.querySelectorAll(".dropdownItem").forEach(item => {
+    item.addEventListener("click", () => {
+        const value = item.getAttribute("data-value");
+        const img = item.querySelector("img");
+
+        hiddenInput.value = value;
+
+        if (img) {
+            selected.innerHTML = `
+                <img src="${img.src}" style="width:25px;height:25px;border-radius:6px;vertical-align:middle;margin-left:6px;">
+                ${value}
+            `;
+        } else {
+            selected.innerHTML = value;
+        }
+
+        list.style.display = "none";
+    });
+});
+
+// סגירה בלחיצה מחוץ
+document.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+        list.style.display = "none";
+    }
+});
+
+const dateInput = document.getElementById("dateInput");
+const timeInput = document.getElementById("timeInput");
+
+// ===== DATE =====
+dateInput.addEventListener("focus", function () {
+    if (this.value === "תאריך") {
+        this.value = "";
+        this.type = "date";
+    }
+});
+
+dateInput.addEventListener("blur", function () {
+    if (this.value === "") {
+        this.type = "text";
+        this.value = "תאריך";
+    }
+});
+
+// ===== TIME =====
+timeInput.addEventListener("focus", function () {
+    if (this.value === "שעה") {
+        this.value = "";
+        this.type = "time";
+    }
+});
+
+timeInput.addEventListener("blur", function () {
+    if (this.value === "") {
+        this.type = "text";
+        this.value = "שעה";
+    }
+});
+</script>
+<style>
+    body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("assets/background/b2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    direction: ltr;
+    font-family: "secular";
+}
+   .title{
+    top: 15%;
+   }
+   .forword {
+    cursor: pointer;
+    position: absolute;
+    top: 85%;
+    left: 22%;
+    transform: translateX(-50%);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.forword:hover {
+    transform: translateX(-50%) scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+.forword:active {
+    transform: translateX(-50%) scale(0.95);
+}
+</style>
+</html>

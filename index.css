@@ -1,0 +1,580 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: url("assets/background/b1.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    direction: ltr;
+    font-family: "secular";
+}
+
+@font-face {
+    font-family: "secular";
+    src: url("assets/fonts/Huninn-Regular.ttf");
+}
+.navbar {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 95%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.titlePopUp {
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    width: 60vw;
+    z-index: 1000000000000000;
+    transform: translate(-50%, -50%);
+}
+
+.text{
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    text-align: right;
+    font-size: 1.2rem;
+    z-index: 10000000000000000;
+    direction: rtl;
+
+}
+.popUpBackground {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000000;
+}
+
+
+.title2 {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.button:hover {
+    transform: translateX(-50%) scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+.button:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+.byGuylee{
+    position: absolute;
+    left: 50%;
+    top:88%;
+    transform: translateX( -50%);
+    z-index: 1000000;
+}
+
+.button1 {
+    cursor: pointer;
+    position: absolute;
+    top: 20%;
+    right: 0;
+
+    transform: translateY(-50%);
+
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.button1:hover {
+    transform: translateY(-50%) scale(1.1); /* 👈 שמרנו על Y */
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+.button1:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.button2 {
+    cursor: pointer;
+    position: absolute;
+    top: 35%;
+    left: 0;
+
+    transform: translateY(-50%);
+
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.button2:hover {
+    transform: translateY(-50%) scale(1.1); /* 👈 שמרנו על Y */
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+.button2:active {
+    transform: translateY(-50%) scale(0.95);
+}
+.button3 {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 0;
+
+    transform: translateY(-50%);
+
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.button3:hover {
+    transform: translateY(-50%) scale(1.1); /* 👈 שמרנו על Y */
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+.button3:active {
+    transform: translateY(-50%) scale(0.95);
+}
+.button4 {
+    cursor: pointer;
+    position: absolute;
+    top: 65%;
+    left: 0;
+
+    transform: translateY(-50%);
+
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.button4:hover {
+    transform: translateY(-50%) scale(1.1); /* 👈 שמרנו על Y */
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+.button4:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+
+.toForm {
+    cursor: pointer;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+    z-index: 1000000000;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.toForm:hover {
+    transform: translateX(-50%) scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+.toForm:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+.goBack {
+  cursor: pointer;
+    position: absolute;
+    top: 15%;
+    left: 0;
+    z-index: 1000000;
+    transform: translateY(-50%);
+
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    touch-action: manipulation;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.goBack:hover {
+    transform: translateY(-50%) scale(1.1); /* 👈 שמרנו על Y */
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+.goBack:active {
+    transform: translateY(-50%) scale(0.95);
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    z-index: 9999;
+}
+
+#popup {
+    display: none;
+}
+
+.pillForm {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "secular";
+    width: 80vw; /* 👈 זה הפתרון */
+    width: min(500px, 90vw);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+/* כל השדות נראים כמו כפתורים */
+.pillForm input,
+.pillForm textarea{
+    width: calc(50% - 8px);
+    padding: 12px 20px;
+    
+    box-sizing: border-box; /* 🔥 קריטי */
+
+    border-radius: 50px;
+    border: none;
+    outline: none;
+     direction: rtl;
+    background: rgba(107, 116, 158, 0.62);
+    color: #FFFCE9;
+
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: "secular";
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* textarea קצת יותר גבוה */
+.pillForm textarea {
+    height: 110px;
+    border-radius: 20px;
+    resize: none;
+    font-family: "secular";
+    direction: rtl;
+}
+
+/* placeholder */
+.pillForm input::placeholder,
+.pillForm textarea::placeholder {
+    color: #FFFCE9;
+    opacity: 0.8;
+}
+
+/* כפתור שליחה
+.pillForm button {
+    background: #FFFCE9;
+    color: #6B749E;
+    cursor: pointer;
+    font-weight: bold;
+} */
+
+
+/* כותרת כמו pill */
+.pillLabel {
+    width: 40vw;
+    padding: 12px;
+
+    border-radius: 50px;
+
+    background: rgba(107, 116, 158, 0.62);
+    color: #FFFCE9;
+
+    text-align: center;
+    font-size: 1.2rem;
+
+    box-sizing: border-box;
+}
+
+/* אזור תמונות */
+.imageSelector {
+    width: 40vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* כל תמונה */
+.imageSelector label {
+    cursor: pointer;
+}
+
+/* מסתיר radio */
+.imageSelector input {
+    display: none;
+}
+
+/* עיצוב תמונה */
+.imageSelector img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+/* כשהתמונה נבחרת */
+.imageSelector input:checked + img {
+    outline: 3px solid #FFFCE9;
+    transform: scale(1.1);
+}
+
+.dropdown {
+  width: calc(50% - 8px);
+  position: relative;
+}
+
+/* כמו שאר השדות */
+.dropdownSelected {
+  width: 100%;
+  padding: 12px 20px;
+
+  border-radius: 50px;
+  box-sizing: border-box;
+
+  background: rgba(107, 116, 158, 0.62);
+  color: #FFFCE9;
+
+  text-align: center;
+  font-size: 1.2rem;
+
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* רשימה */
+.dropdownList {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+
+  width: 100%;
+  background: rgba(255, 252, 233, 0.95);
+
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* פריט */
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 👈 טקסט שמאל, תמונה ימין */
+  flex-direction: row-reverse;     /* 👈 תמונה תמיד ימין */
+
+  padding: 10px 15px;
+  cursor: pointer;
+
+  color: #6B749E;
+  font-weight: bold;
+}
+
+/* hover כחול */
+.dropdownItem:hover {
+  background: #6B749E;
+  color: #FFFCE9;
+}
+
+/* תמונה */
+.dropdownItem img {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+}
+
+/* בלי תמונה ל"אחר" */
+.dropdownItem.noImg {
+  justify-content: center;
+}
+.dropdownItem.noImg img {
+  display: none;
+}
+
+.submitBtn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+
+    position: relative;
+    width: fit-content;
+}
+
+
+.submitBtn img {
+    width: 180px; /* תשני לפי העיצוב שלך */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.submitBtn:hover img {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+}
+
+.submitBtn:active img {
+    transform: scale(0.95);
+}
+
+.halfInput {
+    width: calc(50% - 8px);
+    padding: 16px 20px; /* כמו השאר */
+    
+    box-sizing: border-box;
+
+    border-radius: 50px;
+    border: none;
+    outline: none;
+
+    direction: rtl;
+    background: rgba(107, 116, 158, 0.62);
+    color: #FFFCE9;
+
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: "secular";
+
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* רקע מוחשך */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.6);
+
+    display: none;
+    z-index: 9998;
+}
+
+/* הפופאפ */
+#successPopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+
+    display: none;
+
+    z-index: 9999;
+
+    animation: popIn 0.3s ease forwards;
+}
+
+#successPopup img {
+    width: 250px; /* תשני לפי עיצוב */
+}
+
+/* אנימציה קטנה */
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.6);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* התאמה ל-date ול-time */
+.pillForm input[type="date"],
+.pillForm input[type="time"] {
+    appearance: none;
+    -webkit-appearance: none;
+    
+    width: calc(50% - 8px);
+    padding: 12px 20px;
+
+    border-radius: 50px;
+    border: none;
+    outline: none;
+
+    direction: rtl;
+    background: rgba(107, 116, 158, 0.62);
+    color: #FFFCE9;
+
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: "secular";
+
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* אייקון לבן (כרום) */
+.pillForm input[type="date"]::-webkit-calendar-picker-indicator,
+.pillForm input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* כשאין ערך – מציג placeholder */
+input[type="date"]:before {
+    content: "תאריך";
+    color: #FFFCE9;
+    opacity: 0.7;
+}
+
+input[type="time"]:before {
+    content: "שעה";
+    color: #FFFCE9;
+    opacity: 0.7;
+}
+
+/* כשיש ערך – מעלים את ה-placeholder */
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+    content: "";
+}
+
+input[type="time"]:focus:before,
+input[type="time"]:valid:before {
+    content: "";
+}

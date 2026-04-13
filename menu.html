@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אימונים חשיפה תקיפה</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <img class="navbar" src="assets/logos/logos.png" alt="icon 1">
+<div class="button1" onclick="openPopup(1)">
+  <img src="assets/butttons/margemotM.png">
+</div>
+
+<div class="button2" onclick="openPopup(2)">
+  <img src="assets/butttons/ohadAM.png">
+</div>
+
+<div class="button3" onclick="openPopup(3)">
+  <img src="assets/butttons/ohadOM.png">
+</div>
+
+<div class="button4" onclick="openPopup(4)">
+  <img src="assets/butttons/maozM.png">
+</div>
+ <div id="overlay"></div>
+
+<div id="popup">
+    <img class="popUpBackground" src="assets/elements/rashmatz.png">
+    <img class="goBack" src="assets/butttons/Group 72.png" onclick="closePopup()">
+    <img class="toForm" src="assets/butttons/toFill.png" onclick="goToForm()">
+    <img class="titlePopUp" id="popupTitle">
+    <div class="text" id="popupText"></div>
+</div>
+</body>
+<script>  
+let currentButton = 0;
+
+// מערך טקסטים
+const texts = {
+    1: "לקראת אימון מרגמות על המחלקה להיות עם כלים מזוודים ומוכנים מראש. \n השיעורים יועברו בקבוצות של מפעילים ומפקדים בנפרד.\n אין צורך בציוד עזר לקראת השיעורים.\nאם יש פער מסויים למחלקה בציוד או עזר לימודי (כמו בדחים) ויש רצון שנשאיר אותם אצלם נא לרשום מראש ונדאג לכך.",
+    2: "ציוד נדרש באימון עטלף:\n # סימולטור מחובר לשקע + שלט טעון\n # ערכה מבצעית (לא מוקמת)\n # רחפן+סוללת ליפו+3 סוללות ליון  (לשיעור ביינד)\nציוד נדרש מהמחלקה בשיעור איבו:\n # איבו (גם שלט טעון)\n #שתי סוללות (להטעין מראש)\n # מחשב סודי/סודי ביותר\n # גנרטור (אם האימון קורה בשטח)",
+    3: "ציוד נדרש באימון אופקי:\n # חדר סור ממוזג עם חיבור לחשמל (לסימולטור בגירה- מקור חשמל אמין ויציב) \n# משגר (נשלט/אחוד) \n # שני אולרים \n# ערכת מיני תבל (נשלט/ידני) \n# מיקום לעשות ממנו זטר",
+    4: "ציוד נדרש באימון מעוז:\n# מעוזים\n# ישלט\n# סוללות מעוז טעונות\n# סוללת ישלט טעונה(נשלים במידת הצורך-יש לעדכן מראש)\n# רשק מדמה משקל\n# אנטנה כיוונית (אם יש ביחידה ומשתמשים)\n# סגירה אווירית\n# לעדכן אם המחשבים בבסיס סודיים או סודיים ביותר"
+};
+// מערך תמונות כותרת
+const titles = {
+    1: "assets/titles/margemotT.png",
+    2: "assets/titles/ohadAT.png",
+    3: "assets/titles/ohadOT.png",
+    4: "assets/titles/maozT.png"
+};
+
+function openPopup(buttonNumber) {
+    currentButton = buttonNumber;
+
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("popup").style.display = "block";
+
+    // החלפת תמונה
+    document.getElementById("popupTitle").src = titles[buttonNumber];
+
+    // החלפת טקסט
+    document.getElementById("popupText").innerText = texts[buttonNumber];
+}
+
+function closePopup() {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("popup").style.display = "none";
+}
+
+// מעבר ל־form
+function goToForm() {
+    window.location.href = "form" + currentButton + ".html";
+}
+</script> 
+</html>
