@@ -116,8 +116,8 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     const unit = document.getElementById("unitInput").value.trim();
     const details = this.details.value.trim();
     const notes = this.notes.value.trim();
-    const date = dateInput.value === "תאריך" ? "" : dateInput.value;
-    const time = timeInput.value === "שעה" ? "" : timeInput.value;
+    const date = this.date.value;
+    const time = this.time.value;
     // ✅ בדיקה שכל השדות מלאים
   if (!name || !phone || !job || !solider || !place || !unit || !details || !date || !time) {
     alert("יש למלא את כל השדות לפני שליחה");
